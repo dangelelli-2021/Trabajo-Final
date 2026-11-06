@@ -1,0 +1,24 @@
+[
+    {
+        "codigo": "PS-001",
+        "nombre": "Panel Solar Residencial",
+        "precio": 50000,
+        "stock": 15,
+        "potencia_wattts": 450,
+        "eficiencia": 21.5
+    },
+    {
+        "codigo": "PS-002",
+        "nombre": "Panel Solar Industrial",
+        "precio": 120000,
+        "stock": 8,
+        "potencia_wattts": 600,
+        "eficiencia": 23.5
+    },
+    {
+        "codigo": "DE-001",
+        "nombre": "Filtro de Agua",
+        "precio": 85000,
+        "stock": 5
+    }
+]

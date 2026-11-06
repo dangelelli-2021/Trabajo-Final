@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Sustentabilidad Administrativa</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #d1ded6; /* Fondo verde grisáceo claro */
+            padding: 30px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1.main-title {
+            font-size: 24px;
+            color: #2e5339;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* Estructura de las tarjetas/divisiones */
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        /* Resumen Ejecutivo */
+        .summary-item {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        .summary-item strong {
+            color: #000;
+        }
+
+        /* Tabla de Desglose */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e2f0e7; /* Verde muy claro para el encabezado */
+            color: #2e5339;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid #d0dfd6;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Título Principal -->
+        <h1 class="main-title">Panel de Sustentabilidad Administrativa</h1>
+
+        <!-- Bloque 1: Resumen Ejecutivo de Emisiones -->
+        <div class="card">
+            <div class="card-title">Resumen Ejecutivo de Emisiones</div>
+            <div class="summary-item"><strong>Total Global de Emisiones:</strong> {{ total_emisiones }} kgCO</div>
+            <div class="summary-item"><strong>Planta de Mayor Consumo:</strong> {{ planta_mayor_consumo }}</div>
+        </div>
+
+        <!-- Bloque 2: Desglose por Planta Industrial -->
+        <div class="card">
+            <div class="card-title">Desglose por Planta Industrial</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Planta</th>
+                            <th>Emisiones (kgCO)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Iteramos sobre el diccionario usando .items para obtener clave y valor -->
+                        {% for planta, emisiones in detalle_emisiones.items %}
+                        <tr>
+                            <td>{{ planta }}</td>
+                            <td>{{ emisiones }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">No hay registros de emisiones disponibles.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
